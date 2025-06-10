@@ -4,7 +4,7 @@ const App = () => {
   const cursorRef = useRef(null);
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
-  const skillsRef = useRef(null);
+  const achievementsRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const [activeSection, setActiveSection] = useState('hero');
@@ -124,7 +124,7 @@ const App = () => {
     const sections = [
       heroRef.current,
       aboutRef.current,
-      skillsRef.current,
+      achievementsRef.current,
       projectsRef.current,
       contactRef.current
     ];
@@ -209,7 +209,7 @@ const App = () => {
       <section id="about" ref={aboutRef} className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-16 text-center">About Me</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative group overflow-hidden rounded-lg shadow-xl h-96 md:h-[700px]">
               <img
                 src="/1000107030.jpg"
@@ -267,310 +267,795 @@ const App = () => {
               </div>
             </div>
           </div>
+
+          {/* Skills Section integrated into About */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <h3 className="text-3xl font-bold mb-12 text-center">My Skills & Expertise</h3>
+            
+            {/* Programming Languages - Progress Bars */}
+            <div className="mb-16">
+              <h4 className="text-2xl font-bold mb-8 text-center">Programming Languages</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="bg-gray-50 p-6 rounded-lg shadow-md border-2 border-gray-200 hover:border-black transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">Py</span>
+                    </div>
+                    <span className="font-semibold">Python</span>
+                    <span className="ml-auto text-gray-600">90%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-gray-800 to-black h-3 rounded-full" style={{width: '90%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg shadow-md border-2 border-gray-200 hover:border-black transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">J</span>
+                    </div>
+                    <span className="font-semibold">Java</span>
+                    <span className="ml-auto text-gray-600">85%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-900 h-3 rounded-full" style={{width: '85%'}}></div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg shadow-md border-2 border-gray-200 hover:border-black transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">C++</span>
+                    </div>
+                    <span className="font-semibold">C++</span>
+                    <span className="ml-auto text-gray-600">75%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-800 h-3 rounded-full" style={{width: '75%'}}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tools & Libraries - Skill Cards */}
+            <div className="mb-16">
+              <h4 className="text-2xl font-bold mb-8 text-center">Tools & Libraries</h4>
+              <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <div className="group bg-gray-50 px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
+                  <div className="flex items-center">
+                    <i className="fas fa-code text-2xl text-black mr-3"></i>
+                    <span className="font-semibold group-hover:text-black transition-colors">Pandas</span>
+                    <div className="ml-3 flex">
+                      {[1,2,3,4,5].map(star => (
+                        <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="group bg-gray-50 px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
+                  <div className="flex items-center">
+                    <i className="fas fa-chart-line text-2xl text-black mr-3"></i>
+                    <span className="font-semibold group-hover:text-black transition-colors">NumPy</span>
+                    <div className="ml-3 flex">
+                      {[1,2,3,4,5].map(star => (
+                        <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="group bg-gray-50 px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
+                  <div className="flex items-center">
+                    <i className="fas fa-chart-bar text-2xl text-black mr-3"></i>
+                    <span className="font-semibold group-hover:text-black transition-colors">Matplotlib</span>
+                    <div className="ml-3 flex">
+                      {[1,2,3,4,5].map(star => (
+                        <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="group bg-gray-50 px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
+                  <div className="flex items-center">
+                    <i className="fas fa-database text-2xl text-black mr-3"></i>
+                    <span className="font-semibold group-hover:text-black transition-colors">SQL</span>
+                    <div className="ml-3 flex">
+                      {[1,2,3,4,5].map(star => (
+                        <i key={star} className={`fas fa-star text-sm ${star <= 3 ? 'text-black' : 'text-gray-300'}`}></i>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* DSA Concepts - Animated Skill Cards */}
+            <div className="mb-16">
+              <h4 className="text-2xl font-bold mb-8 text-center">Data Structures & Algorithms</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                {/* Trees Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    92
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-sitemap text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Trees</h5>
+                      <p className="text-gray-600 text-sm">Binary Trees, BST, AVL</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-700 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '92%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Advanced proficiency in tree data structures</p>
+                </div>
+
+                {/* Graphs Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    85
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-project-diagram text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Graphs</h5>
+                      <p className="text-gray-600 text-sm">DFS, BFS, Dijkstra</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-800 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '85%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Strong understanding of graph algorithms</p>
+                </div>
+
+                {/* Dynamic Programming Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    78
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-layer-group text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Dynamic Programming</h5>
+                      <p className="text-gray-600 text-sm">Memoization, Tabulation</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-500 to-gray-700 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '78%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Solid grasp of optimization techniques</p>
+                </div>
+
+                {/* Sorting Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    88
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-sort text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Sorting</h5>
+                      <p className="text-gray-600 text-sm">Quick, Merge, Heap Sort</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-600 to-gray-900 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '88%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Proficient in various sorting algorithms</p>
+                </div>
+
+                {/* Searching Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    90
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-search text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Searching</h5>
+                      <p className="text-gray-600 text-sm">Binary, Linear Search</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-600 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '90%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Expert in search algorithm implementation</p>
+                </div>
+
+                {/* Arrays & Strings Card */}
+                <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    94
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-list text-2xl text-white"></i>
+                    </div>
+                    <div>
+                      <h5 className="text-xl font-bold text-gray-800">Arrays & Strings</h5>
+                      <p className="text-gray-600 text-sm">Manipulation, Processing</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-gray-700 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '94%'}}></div>
+                  </div>
+                  <p className="text-gray-700 text-xs">Mastery of fundamental data structures</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Technical Skills - Tag Cloud */}
+            <div>
+              <h4 className="text-2xl font-bold mb-8 text-center">Technical Skills</h4>
+              <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+                {[
+                  {name: 'Machine Learning', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
+                  {name: 'Data Visualization', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
+                  {name: 'Statistical Analysis', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
+                  {name: 'Web Development', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'},
+                  {name: 'Git/GitHub', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
+                  {name: 'Problem Solving', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
+                  {name: 'API Development', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'},
+                  {name: 'Database Design', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
+                  {name: 'Jupyter Notebooks', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
+                  {name: 'Agile Methodology', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'}
+                ].map((skill, index) => (
+                  <span 
+                    key={index}
+                    className={`px-4 py-2 rounded-full border-2 font-medium transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-black cursor-default ${skill.color} ${
+                      skill.level === 'advanced' ? 'text-lg' : 
+                      skill.level === 'intermediate' ? 'text-base' : 'text-sm'
+                    }`}
+                  >
+                    {skill.name}
+                    <span className="ml-2 text-xs opacity-70">
+                      {skill.level === 'advanced' ? '●●●' : 
+                       skill.level === 'intermediate' ? '●●○' : '●○○'}
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" ref={skillsRef} className="py-20">
+      {/* Achievements Section */}
+      <section id="achievements" ref={achievementsRef} className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-16 text-center">My Skills</h2>
+          <h2 className="text-4xl font-bold mb-16 text-center">Achievements & Recognition</h2>
           
-          {/* Programming Languages - Progress Bars */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">Programming Languages</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200 hover:border-black transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">Py</span>
-                  </div>
-                  <span className="font-semibold">Python</span>
-                  <span className="ml-auto text-gray-600">90%</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Academic Excellence */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-trophy text-white text-2xl"></i>
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-graduation-cap text-white text-2xl"></i>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gradient-to-r from-gray-800 to-black h-3 rounded-full" style={{width: '90%'}}></div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Academic Excellence</h3>
+                <p className="text-gray-600 text-sm mb-4">Consistently maintaining high academic standards</p>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">CGPA</span>
+                  <span className="font-bold text-black">8.7/10</span>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">Rank</span>
+                  <span className="font-bold text-black">Top 15%</span>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">Honors</span>
+                  <span className="font-bold text-black">Dean's List</span>
                 </div>
               </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200 hover:border-black transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">J</span>
-                  </div>
-                  <span className="font-semibold">Java</span>
-                  <span className="ml-auto text-gray-600">85%</span>
+            </div>
+
+            {/* Competitive Programming */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-700 to-gray-900 rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-laptop-code text-white text-2xl"></i>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gradient-to-r from-gray-700 to-gray-900 h-3 rounded-full" style={{width: '85%'}}></div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Competitive Programming</h3>
+                <p className="text-gray-600 text-sm mb-4">Strong problem-solving skills demonstrated through competitions</p>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">LeetCode</span>
+                  <span className="font-bold text-black">500+ Problems</span>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">CodeChef</span>
+                  <span className="font-bold text-black">3 Star</span>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                  <span className="font-medium text-gray-800">HackerRank</span>
+                  <span className="font-bold text-black">Gold Badge</span>
                 </div>
               </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200 hover:border-black transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-black rounded mr-3 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">C++</span>
-                  </div>
-                  <span className="font-semibold">C++</span>
-                  <span className="ml-auto text-gray-600">75%</span>
+            </div>
+
+            {/* Hackathons & Competitions */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-600 to-gray-800 rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-medal text-white text-2xl"></i>
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 opacity-15 group-hover:opacity-30 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Team%20of%20Indian%20students%20celebrating%20hackathon%20victory%20holding%20trophy%20winner%20certificate%20group%20photo%20excited%20expressions%20coding%20competition%20success%20moment&width=200&height=200&seq=hackathon-victory&orientation=square"
+                  alt="Hackathon Victory Moment"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 opacity-10 group-hover:opacity-25 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Smart%20India%20Hackathon%20winner%20certificate%20trophy%20medal%20on%20table%20with%20laptop%20project%20presentation%20slides%20hackathon%20achievement%20documentation&width=150&height=150&seq=hackathon-trophy&orientation=square"
+                  alt="Hackathon Trophy"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-rocket text-white text-2xl"></i>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-800 h-3 rounded-full" style={{width: '75%'}}></div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Hackathons & Competitions</h3>
+                <p className="text-gray-600 text-sm mb-4">Recognition in various coding competitions and hackathons</p>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Smart India Hackathon</span>
+                    <span className="text-xs bg-black text-white px-2 py-1 rounded">1st Place</span>
+                  </div>
+                  <p className="text-xs text-gray-600">National Level - 2024</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">TechFest CodeRush</span>
+                    <span className="text-xs bg-gray-700 text-white px-2 py-1 rounded">2nd Place</span>
+                  </div>
+                  <p className="text-xs text-gray-600">College Level - 2024</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Data Science Olympiad</span>
+                    <span className="text-xs bg-gray-600 text-white px-2 py-1 rounded">3rd Place</span>
+                  </div>
+                  <p className="text-xs text-gray-600">State Level - 2023</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-800 to-black rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-certificate text-white text-2xl"></i>
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 opacity-15 group-hover:opacity-30 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Young%20professional%20Indian%20student%20proudly%20showing%20online%20course%20completion%20certificate%20on%20laptop%20screen%20Google%20Coursera%20AWS%20certification%20achievement%20celebration&width=200&height=200&seq=certification-moment&orientation=square"
+                  alt="Certification Achievement"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 opacity-10 group-hover:opacity-25 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Multiple%20professional%20certificates%20spread%20on%20desk%20Google%20AWS%20Coursera%20certification%20badges%20digital%20credentials%20professional%20development%20documents&width=150&height=150&seq=multiple-certs&orientation=square"
+                  alt="Multiple Certificates"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-award text-white text-2xl"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Professional Certifications</h3>
+                <p className="text-gray-600 text-sm mb-4">Industry-recognized certifications and courses</p>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Python Data Analysis</span>
+                    <i className="fas fa-check-circle text-green-600"></i>
+                  </div>
+                  <p className="text-xs text-gray-600">Google - Coursera</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Machine Learning</span>
+                    <i className="fas fa-check-circle text-green-600"></i>
+                  </div>
+                  <p className="text-xs text-gray-600">Stanford - Coursera</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">AWS Cloud Practitioner</span>
+                    <i className="fas fa-check-circle text-green-600"></i>
+                  </div>
+                  <p className="text-xs text-gray-600">Amazon Web Services</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Projects & Publications */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-700 to-gray-900 rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-project-diagram text-white text-2xl"></i>
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 opacity-15 group-hover:opacity-30 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Indian%20computer%20science%20student%20presenting%20research%20project%20at%20conference%20pointing%20to%20data%20visualization%20charts%20academic%20presentation%20innovation%20showcase&width=200&height=200&seq=project-presentation&orientation=square"
+                  alt="Project Presentation"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 opacity-10 group-hover:opacity-25 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=GitHub%20profile%20showing%20green%20contribution%20graph%20open%20source%20repositories%20code%20commits%20programming%20projects%20developer%20portfolio%20screenshot&width=150&height=150&seq=github-contributions&orientation=square"
+                  alt="GitHub Contributions"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-lightbulb text-white text-2xl"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Projects & Innovation</h3>
+                <p className="text-gray-600 text-sm mb-4">Notable projects and research contributions</p>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Open Source Contributions</span>
+                    <span className="text-xs bg-black text-white px-2 py-1 rounded">15+</span>
+                  </div>
+                  <p className="text-xs text-gray-600">GitHub Repositories</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Research Paper</span>
+                    <span className="text-xs bg-gray-700 text-white px-2 py-1 rounded">Published</span>
+                  </div>
+                  <p className="text-xs text-gray-600">Data Analytics Journal</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Patent Application</span>
+                    <span className="text-xs bg-gray-600 text-white px-2 py-1 rounded">Pending</span>
+                  </div>
+                  <p className="text-xs text-gray-600">ML Algorithm Optimization</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Leadership & Community */}
+            <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border-2 border-gray-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-600 to-gray-800 rounded-bl-3xl flex items-center justify-center">
+                <i className="fas fa-users text-white text-2xl"></i>
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 opacity-15 group-hover:opacity-30 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Indian%20student%20leader%20conducting%20coding%20workshop%20teaching%20programming%20to%20junior%20students%20computer%20lab%20mentorship%20session%20tech%20club%20meeting&width=200&height=200&seq=leadership-moment&orientation=square"
+                  alt="Leadership in Action"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 opacity-10 group-hover:opacity-25 transition-opacity duration-300">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Tech%20club%20group%20photo%20students%20with%20president%20badge%20computer%20science%20association%20team%20building%20workshop%20organizing%20committee%20picture&width=150&height=150&seq=tech-club-photo&orientation=square"
+                  alt="Tech Club Team"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="mb-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <i className="fas fa-handshake text-white text-2xl"></i>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Leadership & Community</h3>
+                <p className="text-gray-600 text-sm mb-4">Active involvement in student communities and leadership roles</p>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Tech Club President</span>
+                    <span className="text-xs bg-black text-white px-2 py-1 rounded">2024</span>
+                  </div>
+                  <p className="text-xs text-gray-600">Computer Science Association</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Coding Mentor</span>
+                    <span className="text-xs bg-gray-700 text-white px-2 py-1 rounded">50+ Students</span>
+                  </div>
+                  <p className="text-xs text-gray-600">Junior Batch Guidance</p>
+                </div>
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-medium text-gray-800">Workshop Organizer</span>
+                    <span className="text-xs bg-gray-600 text-white px-2 py-1 rounded">10+ Events</span>
+                  </div>
+                  <p className="text-xs text-gray-600">Data Science Workshops</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Tools & Libraries - Skill Cards */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">Tools & Libraries</h3>
-            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-              <div className="group bg-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
-                <div className="flex items-center">
-                  <i className="fas fa-code text-2xl text-black mr-3"></i>
-                  <span className="font-semibold group-hover:text-black transition-colors">Pandas</span>
-                  <div className="ml-3 flex">
-                    {[1,2,3,4,5].map(star => (
-                      <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
-                    ))}
+          {/* Gallery Section */}
+          <div className="mt-16 bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl border-2 border-gray-200">
+            <h3 className="text-3xl font-bold mb-8 text-center text-gray-800">Achievement Gallery</h3>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">A visual journey through my achievements, capturing moments of success, learning, and growth in my academic and professional career.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Academic Excellence Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Academic Achievement Celebration"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-800 to-black relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-black/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-graduation-cap text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Academic Excellence</div>
+                    <div className="text-xs opacity-90">CGPA: 8.7/10</div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="group bg-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
-                <div className="flex items-center">
-                  <i className="fas fa-chart-line text-2xl text-black mr-3"></i>
-                  <span className="font-semibold group-hover:text-black transition-colors">NumPy</span>
-                  <div className="ml-3 flex">
-                    {[1,2,3,4,5].map(star => (
-                      <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
-                    ))}
-                  </div>
+                <div className="absolute top-4 right-4 bg-white text-black px-2 py-1 rounded-full text-xs font-bold">
+                  Dean's List
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Academic Excellence</h4>
+                  <p className="text-sm opacity-90">Celebrating academic achievements and Dean's list recognition</p>
                 </div>
               </div>
-              
-              <div className="group bg-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
-                <div className="flex items-center">
-                  <i className="fas fa-chart-bar text-2xl text-black mr-3"></i>
-                  <span className="font-semibold group-hover:text-black transition-colors">Matplotlib</span>
-                  <div className="ml-3 flex">
-                    {[1,2,3,4,5].map(star => (
-                      <i key={star} className={`fas fa-star text-sm ${star <= 4 ? 'text-black' : 'text-gray-300'}`}></i>
-                    ))}
+
+              {/* Competitive Programming Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Competitive Programming Session"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-600/20 to-gray-800/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-laptop-code text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Competitive Programming</div>
+                    <div className="text-xs opacity-90">500+ Problems</div>
                   </div>
                 </div>
+                <div className="absolute top-4 right-4 bg-gray-300 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  3★ CodeChef
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Competitive Programming</h4>
+                  <p className="text-sm opacity-90">Late night coding sessions and problem-solving marathons</p>
+                </div>
               </div>
-              
-              <div className="group bg-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 hover:border-black">
-                <div className="flex items-center">
-                  <i className="fas fa-database text-2xl text-black mr-3"></i>
-                  <span className="font-semibold group-hover:text-black transition-colors">SQL</span>
-                  <div className="ml-3 flex">
-                    {[1,2,3,4,5].map(star => (
-                      <i key={star} className={`fas fa-star text-sm ${star <= 3 ? 'text-black' : 'text-gray-300'}`}></i>
-                    ))}
+
+              {/* Hackathon Victory Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Hackathon Victory Celebration"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-600 to-gray-800 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-gray-700/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-trophy text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Hackathon Victory</div>
+                    <div className="text-xs opacity-90">Smart India Hackathon</div>
                   </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-white text-black px-2 py-1 rounded-full text-xs font-bold">
+                  1st Place
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Hackathon Victory</h4>
+                  <p className="text-sm opacity-90">Smart India Hackathon 2024 - First Place Winners</p>
+                </div>
+              </div>
+
+              {/* Certification Achievement Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Professional Certification Achievement"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-500 to-gray-700 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 to-gray-600/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-certificate text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Professional Certifications</div>
+                    <div className="text-xs opacity-90">Google • AWS • Coursera</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gray-300 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  5+ Certs
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Professional Certifications</h4>
+                  <p className="text-sm opacity-90">Google, AWS, and Coursera certifications completed</p>
+                </div>
+              </div>
+
+              {/* Project Presentation Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Project Presentation at Conference"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-600 to-gray-800 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-gray-700/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-presentation text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Research Presentation</div>
+                    <div className="text-xs opacity-90">Data Analytics Journal</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gray-200 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  Published
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Research Presentation</h4>
+                  <p className="text-sm opacity-90">Presenting data analysis research at tech conference</p>
+                </div>
+              </div>
+
+              {/* Leadership & Community Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Leadership in Tech Club"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-600/20 to-gray-800/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-users text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Leadership & Community</div>
+                    <div className="text-xs opacity-90">Tech Club President</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gray-300 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  50+ Students
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Leadership & Mentorship</h4>
+                  <p className="text-sm opacity-90">Leading coding workshops and mentoring junior students</p>
+                </div>
+              </div>
+
+              {/* Additional Achievement Photos */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Coding Competition Victory"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-800 to-black relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-black/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-medal text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Competition Victory</div>
+                    <div className="text-xs opacity-90">Multiple Wins</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-white text-black px-2 py-1 rounded-full text-xs font-bold">
+                  Winner
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Competition Victory</h4>
+                  <p className="text-sm opacity-90">Winning moments from various coding competitions</p>
+                </div>
+              </div>
+
+              {/* Internship Experience */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Internship Experience"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-600 to-gray-800 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-gray-700/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-briefcase text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Internship Experience</div>
+                    <div className="text-xs opacity-90">Data Science Intern</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gray-200 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  Professional
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Internship Experience</h4>
+                  <p className="text-sm opacity-90">Professional growth through data science internships</p>
+                </div>
+              </div>
+
+              {/* Workshop & Teaching */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <img
+                  src="/1000107030.jpg"
+                  alt="Workshop Teaching Session"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+                <div className="w-full h-48 hidden items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-600/20 to-gray-800/20"></div>
+                  <div className="text-center text-white z-10">
+                    <i className="fas fa-chalkboard-teacher text-4xl mb-2 opacity-80"></i>
+                    <div className="font-bold text-sm">Workshop Teaching</div>
+                    <div className="text-xs opacity-90">Data Science Workshops</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gray-300 text-black px-2 py-1 rounded-full text-xs font-bold">
+                  Mentor
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="font-bold text-lg mb-1">Workshop Teaching</h4>
+                  <p className="text-sm opacity-90">Conducting data science workshops for fellow students</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* DSA Concepts - Animated Skill Cards */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">Data Structures & Algorithms</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {/* Trees Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  92
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-sitemap text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Trees</h4>
-                    <p className="text-gray-600 text-sm">Binary Trees, BST, AVL</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-700 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '92%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Advanced proficiency in tree data structures</p>
+          {/* Statistics Summary */}
+          <div className="mt-16 bg-gradient-to-r from-gray-900 to-black rounded-3xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-8 text-center">Achievement Highlights</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">15+</div>
+                <div className="text-gray-300 text-sm">Competitions Won</div>
               </div>
-
-              {/* Graphs Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  85
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-project-diagram text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Graphs</h4>
-                    <p className="text-gray-600 text-sm">DFS, BFS, Dijkstra</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-800 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '85%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Strong understanding of graph algorithms</p>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
+                <div className="text-gray-300 text-sm">Problems Solved</div>
               </div>
-
-              {/* Dynamic Programming Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  78
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-layer-group text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Dynamic Programming</h4>
-                    <p className="text-gray-600 text-sm">Memoization, Tabulation</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-500 to-gray-700 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '78%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Solid grasp of optimization techniques</p>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">8.7</div>
+                <div className="text-gray-300 text-sm">CGPA</div>
               </div>
-
-              {/* Sorting Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  88
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-sort text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Sorting</h4>
-                    <p className="text-gray-600 text-sm">Quick, Merge, Heap Sort</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-600 to-gray-900 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '88%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Proficient in various sorting algorithms</p>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
+                <div className="text-gray-300 text-sm">Certifications</div>
               </div>
-
-              {/* Searching Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  90
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-search text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Searching</h4>
-                    <p className="text-gray-600 text-sm">Binary, Linear Search</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-600 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '90%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Expert in search algorithm implementation</p>
-              </div>
-
-              {/* Arrays & Strings Card */}
-              <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border-2 border-gray-200 hover:border-black transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="absolute top-4 right-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  94
-                </div>
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <i className="fas fa-list text-2xl text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-800">Arrays & Strings</h4>
-                    <p className="text-gray-600 text-sm">Manipulation, Processing</p>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div className="bg-gradient-to-r from-gray-700 to-black h-2 rounded-full transition-all duration-1000 ease-out" style={{width: '94%'}}></div>
-                </div>
-                <p className="text-gray-700 text-xs">Mastery of fundamental data structures</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Technical Skills - Tag Cloud */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-center">Technical Skills</h3>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {[
-                {name: 'Machine Learning', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
-                {name: 'Data Visualization', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
-                {name: 'Statistical Analysis', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
-                {name: 'Web Development', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'},
-                {name: 'Git/GitHub', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
-                {name: 'Problem Solving', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
-                {name: 'API Development', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'},
-                {name: 'Database Design', level: 'intermediate', color: 'bg-gray-100 text-gray-800 border-gray-300'},
-                {name: 'Jupyter Notebooks', level: 'advanced', color: 'bg-gray-200 text-black border-gray-400'},
-                {name: 'Agile Methodology', level: 'beginner', color: 'bg-gray-50 text-gray-700 border-gray-200'}
-              ].map((skill, index) => (
-                <span 
-                  key={index}
-                  className={`px-4 py-2 rounded-full border-2 font-medium transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-black cursor-default ${skill.color} ${
-                    skill.level === 'advanced' ? 'text-lg' : 
-                    skill.level === 'intermediate' ? 'text-base' : 'text-sm'
-                  }`}
-                >
-                  {skill.name}
-                  <span className="ml-2 text-xs opacity-70">
-                    {skill.level === 'advanced' ? '●●●' : 
-                     skill.level === 'intermediate' ? '●●○' : '●○○'}
-                  </span>
-                </span>
-              ))}
             </div>
           </div>
         </div>
-
-        <style>{`
-          .hexagon {
-            width: 120px;
-            height: 104px;
-            position: relative;
-            margin: 52px auto;
-            border-radius: 10px;
-            transform: rotate(30deg);
-          }
-          
-          .hexagon-inner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform: rotate(-30deg);
-            border-radius: 10px;
-          }
-          
-          .hexagon:before,
-          .hexagon:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 60px solid transparent;
-            border-right: 60px solid transparent;
-          }
-          
-          .hexagon:before {
-            bottom: 100%;
-            border-bottom: 30px solid inherit;
-          }
-          
-          .hexagon:after {
-            top: 100%;
-            border-top: 30px solid inherit;
-          }
-        `}</style>
       </section>
 
       {/* Projects Section */}
@@ -584,13 +1069,13 @@ const App = () => {
                 <img
                   src="https://readdy.ai/api/search-image?query=Data%20visualization%20dashboard%20with%20multiple%20charts%20and%20graphs%20displaying%20analytics%20information%2C%20clean%20modern%20UI%20with%20dark%20mode%20theme%2C%20showing%20financial%20or%20business%20metrics%20on%20computer%20screen&width=600&height=400&seq=project1&orientation=landscape"
                   alt="Data Analysis Dashboard"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Data Analysis Dashboard</h3>
                 <p className="text-gray-700 mb-4">
-                  An interactive dashboard for visualizing complex datasets using Python, Pandas, and Matplotlib.
+                  An interactive dashboard for visualizing complex datasets using Python, Pandas, and Matplotlib.    
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="bg-gray-200 px-2 py-1 text-sm rounded">Python</span>
@@ -609,7 +1094,7 @@ const App = () => {
                 <img
                   src="https://readdy.ai/api/search-image?query=Algorithm%20visualization%20tool%20showing%20graph%20traversal%20with%20nodes%20and%20edges%2C%20interactive%20UI%20with%20step-by-step%20execution%20controls%2C%20educational%20computer%20science%20application%20with%20clean%20design&width=600&height=400&seq=project2&orientation=landscape"
                   alt="Algorithm Visualizer"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
@@ -634,7 +1119,7 @@ const App = () => {
                 <img
                   src="https://readdy.ai/api/search-image?query=Machine%20learning%20model%20prediction%20interface%20showing%20image%20classification%20results%20with%20confidence%20scores%2C%20modern%20UI%20with%20sample%20images%20and%20prediction%20statistics%2C%20tech%20research%20project%20visualization&width=600&height=400&seq=project3&orientation=landscape"
                   alt="ML Image Classifier"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-48 object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
@@ -646,31 +1131,6 @@ const App = () => {
                   <span className="bg-gray-200 px-2 py-1 text-sm rounded">Python</span>
                   <span className="bg-gray-200 px-2 py-1 text-sm rounded">TensorFlow</span>
                   <span className="bg-gray-200 px-2 py-1 text-sm rounded">CNN</span>
-                </div>
-                <div className="flex space-x-3">
-                  <a href="#" className="bg-black text-white px-4 py-2 rounded text-sm font-medium cursor-pointer rounded-button whitespace-nowrap">Live Demo</a>
-                  <a href="#" className="border border-black px-4 py-2 rounded text-sm font-medium cursor-pointer rounded-button whitespace-nowrap">Source Code</a>
-                </div>
-              </div>
-            </div>
-            {/* Project 4 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:rotate-1">
-              <div className="h-56 overflow-hidden">
-                <img
-                  src="https://readdy.ai/api/search-image?query=Smart%20home%20automation%20interface%20with%20connected%20devices%20status%2C%20IoT%20dashboard%20showing%20temperature%2C%20lighting%2C%20and%20security%20controls%2C%20modern%20minimalist%20design%20with%20device%20icons%20and%20status%20indicators&width=600&height=400&seq=project4&orientation=landscape"
-                  alt="Smart Home System"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Smart Home System</h3>
-                <p className="text-gray-700 mb-4">
-                  An IoT-based smart home automation system with mobile app control and data analytics.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-gray-200 px-2 py-1 text-sm rounded">Java</span>
-                  <span className="bg-gray-200 px-2 py-1 text-sm rounded">Arduino</span>
-                  <span className="bg-gray-200 px-2 py-1 text-sm rounded">IoT</span>
                 </div>
                 <div className="flex space-x-3">
                   <a href="#" className="bg-black text-white px-4 py-2 rounded text-sm font-medium cursor-pointer rounded-button whitespace-nowrap">Live Demo</a>
@@ -824,17 +1284,17 @@ const App = () => {
           </button>
 
           <button 
-            onClick={() => scrollToSection('skills')} 
-            className={`group relative flex flex-col items-center transition-all duration-300 touch-manipulation min-w-0 flex-1 md:flex-none ${activeSection === 'skills' ? 'scale-105 md:scale-110' : 'hover:scale-105 md:hover:scale-110 active:scale-95'}`}
-            aria-label="Navigate to Skills section"
+            onClick={() => scrollToSection('achievements')} 
+            className={`group relative flex flex-col items-center transition-all duration-300 touch-manipulation min-w-0 flex-1 md:flex-none ${activeSection === 'achievements' ? 'scale-105 md:scale-110' : 'hover:scale-105 md:hover:scale-110 active:scale-95'}`}
+            aria-label="Navigate to Achievements section"
           >
-            <div className={`absolute -top-5 sm:-top-6 md:-top-8 transform -translate-y-full opacity-0 bg-black px-1.5 sm:px-2 md:px-3 py-1 rounded text-xs text-white transition-all duration-300 ${activeSection === 'skills' ? 'opacity-100' : 'group-hover:opacity-100'} whitespace-nowrap pointer-events-none z-10`}>
-              Skills
+            <div className={`absolute -top-5 sm:-top-6 md:-top-8 transform -translate-y-full opacity-0 bg-black px-1.5 sm:px-2 md:px-3 py-1 rounded text-xs text-white transition-all duration-300 ${activeSection === 'achievements' ? 'opacity-100' : 'group-hover:opacity-100'} whitespace-nowrap pointer-events-none z-10`}>
+              Achievements
             </div>
-            <div className={`relative w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg md:rounded-xl transition-all duration-300 ${activeSection === 'skills' ? 'bg-white text-black shadow-lg' : 'text-white hover:bg-white/10 active:bg-white/20'}`}>
-              <i className="fas fa-chart-bar text-sm sm:text-base md:text-xl"></i>
+            <div className={`relative w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg md:rounded-xl transition-all duration-300 ${activeSection === 'achievements' ? 'bg-white text-black shadow-lg' : 'text-white hover:bg-white/10 active:bg-white/20'}`}>
+              <i className="fas fa-trophy text-sm sm:text-base md:text-xl"></i>
             </div>
-            <div className={`h-0.5 md:h-1 w-full rounded-full mt-0.5 sm:mt-1 transition-all duration-300 ${activeSection === 'skills' ? 'bg-white' : ''}`}></div>
+            <div className={`h-0.5 md:h-1 w-full rounded-full mt-0.5 sm:mt-1 transition-all duration-300 ${activeSection === 'achievements' ? 'bg-white' : ''}`}></div>
           </button>
 
           <button 
@@ -884,5 +1344,5 @@ const App = () => {
     </div>
   );
 };
-
+  
 export default App;
